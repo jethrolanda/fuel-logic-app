@@ -1,0 +1,559 @@
+$main-color: #A2CD3A;
+$step-fill-color: #F1F7E4;
+$secondary-color: #F5824E;
+$chat-bg-left-color: #F2F2F2;
+$chat-bg-right-color: rgb(148,193,58, .17);
+
+h1, h2, h3, h4, h5, h6{
+  font-weight: 400;
+}
+// Button
+// .ant-btn-primary,
+
+// hover
+// .ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover{
+//   background: $main-color;
+// }
+
+// Current step
+.ant-steps .ant-steps-item-process .ant-steps-item-icon{
+  background: $step-fill-color;
+  border-color: $main-color;
+  .ant-steps-icon{
+    color: $main-color!important;
+  }
+}
+
+// Finished step
+.ant-steps .ant-steps-item-finish .ant-steps-item-icon{
+  background: $main-color;
+  border-color: $main-color;
+  .ant-steps-icon{
+    color: #fff;
+  }
+}
+
+// other steps
+.ant-steps .ant-steps-item-wait .ant-steps-item-icon{
+  background: none;
+  border-color: $main-color;
+  .ant-steps-icon{
+    color: $main-color!important;
+  }
+
+}
+
+// Lines
+.ant-steps .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title::after,
+.ant-steps .ant-steps-item-process>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title::after{
+  background: $main-color;
+}
+
+.ant-steps-item:last-of-type{
+  &.ant-steps-item-active{
+    .ant-steps-item-icon{
+      background: rgb(247,167,130);
+      border-color: $secondary-color;
+      .ant-steps-icon{
+        color: #fff!important;
+      }
+      
+    }
+  }
+}
+
+// RADIO SELECTED
+.ant-radio-wrapper .ant-radio-checked .ant-radio-inner,
+// CHECKBOX SELECTED
+.ant-checkbox-checked .ant-checkbox-inner,
+.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-checked:not(.ant-checkbox-disabled) .ant-checkbox-inner{
+  background: $main-color;
+  border-color: $main-color;
+}
+#fuel-logic-app{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // padding: 20px;
+}
+
+body{
+  font-family: sans-serif;
+  margin: 0px;
+  padding: 0px;
+  font-size: 16px;
+
+  // &:has(.leaflet-container){
+  //   overflow: hidden;
+  // }
+}
+#wrapper{
+  width: 100%;
+  height: calc(100vh - 50px);
+  // border: 1px solid #40a9ff;
+}
+
+#launch-screen{
+  max-width: 450px;
+  // border: 1px solid #dadce0;
+  text-align: center;
+  // padding: '50px 40px';
+  border-radius: 6px;
+}
+
+#logo{
+  width: 80%;
+  padding-top: 50px;
+}
+
+#background {
+  // width: 100%;
+  min-height: 500px;
+  background-position: center;
+  position: relative;
+  bottom: 15%;
+  overflow: hidden;
+  animation-name: MOVE-BG;
+  animation-duration: 50s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+}
+@keyframes MOVE-BG {
+  from {
+    background-position: 0;
+  }
+  to { 
+    background-position: -400px;
+  }
+}
+
+#truck-moving{
+  position: absolute;
+  bottom: 0px;
+  left: -400px;
+  width: 350px;
+  // -webkit-transform: scaleX(-1);
+  // transform: scaleX(-1);
+  -webkit-animation: linear infinite;
+  -webkit-animation-name: run;
+  -webkit-animation-duration: 6s;
+
+  #truck{
+    width: 350px; 
+  }
+  #wheel1{
+    position: absolute;
+    bottom: 18px;
+    left: 57px;
+    width: 49px;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+  }
+  #wheel2{
+    position: absolute;
+    bottom: 18px;
+    left: 276px;
+    width: 49px;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+  }
+}
+
+// Moving truck
+@keyframes run{
+  0% {
+    left: -450px;
+  }
+  50% { 
+    left: calc(100% - 450px); 
+  }
+  100% {
+    left: 450px;     
+  }
+}
+@-webkit-keyframes run {
+  0% {
+    left: 0;
+  }
+  50% { 
+    left: calc(100% - 100px); 
+  }
+  100% {
+    left: 0;     
+  }
+}
+
+// Rotating wheels
+@-moz-keyframes spin { 
+  100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+  100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+  100% { 
+      -webkit-transform: rotate(360deg); 
+      transform:rotate(360deg); 
+  } 
+}
+
+.secondary-btn,
+.btn{
+  color: #fff;
+  border-radius: 8px;
+  height: auto;
+  padding: 10px 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+// BUTTONS
+.btn{
+  background: $main-color!important;
+  border: 1px solid $main-color!important;
+  border-color: $main-color!important;
+  &:active{
+    top: 1px;
+  }
+  &:hover{
+    background: $main-color!important;
+    color: #fff!important;
+  }
+}
+
+.secondary-btn{
+  background: $secondary-color!important;
+  border-color: $secondary-color!important;
+  margin: 0px 10px;
+  &:active{
+    top: 1px;
+  }
+  &:hover{
+    background: $secondary-color!important;
+  }
+}
+
+.start-new-order-btn{
+  max-width: 500px;
+  width: 100%;
+}
+
+.login-form-button{
+  width: 100%!important;
+}
+
+.oval{
+  height: 460px;
+  width: 120%;
+  border-radius: 50%;
+  position: fixed;
+  top: -140px;
+}
+
+@media screen and (max-width: 760px) {
+  .oval{
+    background: #464646;
+  }
+  .login-bg{
+    background: #585758;
+  }
+}
+
+// SEARCH BOX COMPOMENET
+.search-box{
+  position: relative;
+  display: flex;
+  top: 80px;
+  width: 100%;
+  z-index: 9;
+  justify-content: center;
+
+  ul{
+    li{
+      color: $main-color;
+    }
+  }
+}
+
+.search-box, .main-menu{
+  ul{
+    font-size: 16px;
+    list-style-type: none;
+    padding: 5px 10px;
+    margin: 0px;
+    width: 100%;
+  
+    li{
+      padding: 10px;
+      border-bottom: 1px solid #cdcdcd;
+      cursor: pointer;
+  
+      &:last-child{
+        border-bottom: 0px;
+      }
+    }
+  }
+}
+
+
+.home-footer-actions{
+  position: absolute;
+  bottom: 40px;
+  // z-index: 9999;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  
+  // START ORDER COMPOMENET
+  .start-new-order{
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // padding: 10px;
+    // z-index: 9999;
+    width: 100%;
+  }
+}
+
+// SHORTCUTS MENU COMPOMENET
+.shortcuts-menu{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+
+  .menus{
+    max-width: 1000px;
+    width: 100%;
+    background: #fafafa;
+    font-size: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 10px;
+    justify-items: center;
+    color: #707070;
+  }
+}
+
+
+.headings{
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+
+  h2{
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 20px;
+  }
+  h4{
+    font-weight: 600;
+    color: $main-color;
+  }
+  h2, h4{
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+.save-for-later{
+  color: $secondary-color;
+}
+
+.chat{
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 70%;
+  position: relative;
+
+  &.left{
+    align-self: start;
+    background: $chat-bg-left-color;
+    border-bottom-left-radius: 0;
+    margin-bottom: 30px;
+
+    &:before{
+      // content: "";
+      // position: absolute;
+      // left: 5%;
+      // top: -20px;
+      // border-left: 4px solid transparent;
+      // border-right: 40px solid transparent;
+      // border-bottom: 20px solid $chat-bg-left-color;
+      // border-radius: 10px 0px 0px 0px;
+      content: ' ';
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: 0px;
+      bottom: -24px;
+      border: 12px solid;
+      border-color: $chat-bg-left-color transparent transparent $chat-bg-left-color ;
+    }
+  }
+  &.right{
+    align-self: end;
+    background: $chat-bg-right-color;
+    border-bottom-right-radius: 0;
+    margin-bottom: 30px;
+    &:before{
+      content: ' ';
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: auto;
+      right: 0px;
+      bottom: -24px;
+      border: 12px solid;
+      border-color: $chat-bg-right-color $chat-bg-right-color transparent transparent;
+    }
+  }
+}
+
+span.anticon.anticon-home,
+span.anticon.anticon-message,
+span.anticon.anticon-notification,
+span.anticon.anticon-phone{
+  &:hover{
+    color: $secondary-color;
+  }
+}
+
+.chatbox, .notification{
+  .ant-drawer-wrapper-body{
+    max-width: 1000px;
+    position: relative;
+  }
+}
+
+// Notifications
+.notification{
+
+  .order-wrap {
+    position: relative;
+    padding-left: 25px;
+
+    &:before{
+      content: "";
+      height: 15px;
+      width: 15px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      position: absolute;
+      left: 0px;
+      top: 8px;
+    }
+  }
+
+  .order-number{
+    color: #81899A;
+  }
+
+  .order-address{
+    color: #3B455D;
+  }
+
+  // Processing
+  .processing{
+    .order-status{
+      color: $secondary-color;
+    }
+    .chat-btn{
+      border: 1px solid $secondary-color;
+      color: $secondary-color;
+    }
+
+    .order-wrap{
+      &:before{
+        background: $secondary-color;
+      }
+    }
+  }
+
+  // Dispatched
+  .dispatched{
+    .order-status{
+      color: #32C5FF;
+    }
+    .chat-btn{
+      border: 1px solid #32C5FF;
+      color: #32C5FF;
+    }
+
+    .order-wrap{
+      &:before{
+        background: #32C5FF;
+      }
+    }
+  }
+  
+  // Completed
+  .completed{
+    .order-status{
+      color: #A2CD3A;
+    }
+    
+    .order-wrap{
+      &:before{
+        background: #A2CD3A;
+      }
+    }
+  }
+  
+  .chat-btn, .view-btn, .reorder-btn{
+    border-radius: 20px;
+    padding: 4px 30px;
+  }
+
+  .view-btn{
+    border: 1px solid #6D7278;
+    color: #6D7278;
+  }
+
+  .reorder-btn{
+    border: 1px solid #A2CD3A;
+    color: #A2CD3A;
+  }
+}
+
+// MAIN MENU
+.main-menu{
+  ul{
+    li{
+      font-weight: 600;
+      &:first-child{
+        border-top: 1px solid #cdcdcd;
+      }
+      &:last-child{
+        border-bottom: 1px solid #cdcdcd;
+      }
+    }
+  }
+}
+
+// Confirmation Page
+.confirmation-page{
+  max-width: 1000px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+// ADDRESS
+h5{
+  color: $secondary-color;
+}
+p.address{
+  font-weight: 600;
+  max-width: 250px;
+}
